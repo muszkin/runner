@@ -1,0 +1,13 @@
+name: runner-routing-spike
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        idx: [1, 2]
+    steps:
+      - run: |
+          echo "runner=$RUNNER_NAME env=$RUNNER_ENVIRONMENT"
+          cat /etc/os-release | head -2
